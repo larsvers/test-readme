@@ -2,7 +2,7 @@
 
 A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ does three things:
 
-1. It allows you to [regularly tesselate](https://www.mathsisfun.com/geometry/tessellation.html) polygons with hexagons. _**d3-hexbin**_ produces hexagons where there is data. _**d3-hexgrid**_ produces hexagons where there is a base geography you define.
+1. It allows you to [regularly tessellate](https://www.mathsisfun.com/geometry/tessellation.html) polygons with hexagons. _**d3-hexbin**_ produces hexagons where there is data. _**d3-hexgrid**_ produces hexagons where there is a base geography you define.
 
 2. Hexagons at the edge of your geography are often truncated by the geography's border. _d3.hexgrid_ calculates the inside-area of these edge hexagons (_cover_) allowing you to encode edge data based on the correct point density. [See below for more](#cover-correction).
 
@@ -40,7 +40,7 @@ Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
 ### Cover correction
 
-The tesselation aspect might become clear in these examples. The edge cover calculation might not. In short, _d3.hexgrid_ identifies all **edge hexagons** that partly lie beyond the borders of the geography&mdash;or more general, the base image presented. In a next step it calculates the edge hexagon's **cover**: the area the edge hexagon lies within the bounds of the base image in percent. Lastly, the **point density** will be calculated by: 
+The tessellation aspect might become clear in these examples. The edge cover calculation might not. In short, _d3.hexgrid_ identifies all **edge hexagons** that partly lie beyond the borders of the geography&mdash;or more general, the base image presented. In a next step it calculates the edge hexagon's **cover**: the area the edge hexagon lies within the bounds of the base image in percent. Lastly, the **point density** will be calculated by: 
 
 _Point density = Points in hexagon / Hexagon area in px<sup>2</sup> * Cover_
 
@@ -63,7 +63,7 @@ Please see [this notebook](LINK) LINK!! for a description of the overall algorit
 npm install d3-hexgrid
 ```
 
-You can also download the build files [from here](TODO link).
+You can also download the build files [from here]() TODO link!!.
 
 Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 
@@ -147,7 +147,7 @@ This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-
 
 ![grid object](img/grid-object.jpg)
 
-* `imageCenters` is an array of all [x, y] hexagon centers of the hexgrid.
+* `imageCenters` is an array of all [x, y] hexagon centres of the hexgrid.
 
 * `layout` is an array of arrays, each sub-array representing a hexagon in the grid. Each sub-array holds all point locations per hexagon in an object exposing at least _x_ and _y_ pixel coordinates as well as aggregate values. Here's an example hexagon layout object with three point locations or _datapoints_:
 
@@ -160,7 +160,7 @@ This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-
 	- `datapointsWt` is the number of points weighted by the inverse cover.
 	- `pointDensity` is the hexagon's point density.
 	- `gridpoint` marks the hexagon as part of the initial hexgrid. This allows you to distinguish hexagons added by the data. Imprecise latitude and longitude data values can lead to the production of hexagons just outside the hexgrid. _d3.hexgrid_ will still capture and produce them. But you can spot and treat them by filtering for `gridpoint === 0`.
-	- `x` and `y`are the hexagon center positions in pixel coordinates.
+	- `x` and `y` are the hexagon centre positions in pixel coordinates.
 
 * `extentPoints` is the extent of point location counts over all hexagons in the form _[min number of points, max number of points]_.
 * `extentPointsWeighted` is the extent of point location counts weighted by their cover over all hexagons in the form _[min number of weighted points, max number of weighted points]_.
@@ -176,7 +176,7 @@ Working with points, for example, we might want to create the following colour s
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
   .domain(hex.grid.extentPoints.reverse()); 
 ```
-Here, we decide to encode the number of points per hexagon as colours along the spectrum of the [viridis colour map](https://github.com/d3/d3-scale-chromatic#interpolateViridis) and create an appropriate colour scale. We reverse the extent as we want to map the maximum value to the darkest colour, which the viridis colour space starts with.
+Here, we decide to encode the number of points per hexagon as colours along the spectrum of the [Viridis colour map](https://github.com/d3/d3-scale-chromatic#interpolateViridis) and create an appropriate colour scale. We reverse the extent as we want to map the maximum value to the darkest colour, which the Viridis colour space starts with.
 
 Finally, we build the visual:
 
@@ -276,20 +276,20 @@ Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys 
 
 ## General notes on hexagonal binning
 
-Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tesselated. As a result, point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
+Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tessellated. As a result, point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
 
 While being the right choice in many cases two notes should be considered when using hexagonal binning&mdash;or any point location binning for that matter:
 
 #### Use equal area projections for the base geography.
 
-The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tesselation normalises space to equally sized units&mdash;hexagons in this case&mdash;which invites the reader to assume that each unit covers the same area. However, some projections, like the ubiquitous Mercator projection, will distort area increasingly towards the poles:
+The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tessellation normalises space to equally sized units&mdash;hexagons in this case&mdash;which invites the reader to assume that each unit covers the same area. However, some projections, like the ubiquitous Mercator projection, will distort area increasingly towards the poles:
 
 
 ![mercator](img/mercator.jpg)
 
 <sub>All red circles are of the same area. Source: [D3 in depth](http://d3indepth.com/geographic/) by [Peter Cook](http://animateddata.co.uk/)
 
-Tesselating a Mercator world map with hexagons will produce many more hexagons per square mile in Norway compared to Brazil.
+Tessellating a Mercator world map with hexagons will produce many more hexagons per square mile in Norway compared to Brazil.
 
 [Equal area projections](https://github.com/d3/d3-geo-projection#geoConicEqualArea) will help to avoid this problem to a large extent. 
 
