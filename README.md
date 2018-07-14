@@ -50,7 +50,7 @@ A comparison:
 
 Both maps encode the number of Farmer's Markets per hexagon. Yellow represents a low, purple a high number. The edge hexagons of the upper map are not cover corrected, the edge hexagons of the lower map are. 
 
-The edge hexagon at the south-eastern tip of Florida we're comparing has a cover of 55%, meaning 55% of the hexagon's area are inland, 45% are in the Atlantic. There are a total of 22 Farmer's Markets in this hexagon. Not cover corrected, the hexagon would have a point density of 0.09 and would receive a dark blue with the colour scale of choice. If cover corrected, its real point density increases to 0.17 and it is coloured in a dark purple - indicating higher point density as it should.
+The edge hexagon at the south-eastern tip of Florida we're comparing has a cover of 55%, meaning 55% of the hexagon's area are inland, 45% are in the Atlantic. There are a total of 22 Farmer's Markets in this hexagon. Not cover corrected, the hexagon would have a point density of 0.09 and would receive a dark blue with the colour scale of choice. If cover corrected, its real point density increases to 0.17 and it is coloured in a dark purple &mdash; indicating higher point density as it should.
 
 Differences might be subtle but are noticeable.
 
@@ -191,7 +191,7 @@ svg.append('g')
   .attr('d', hexgrid.hexagon())
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 ```
-We use the `hex.grid.layout` to produce as many path's as there are hexagons - as we would with `d3.hexbin()` - now, however, making sure we have as many hexagons to cover our entire GeoJSON polygon. We `translate` them into place and draw them with `hexgrid.hexagon()`. Lastly, we give our empty hexagons (`!d.datapoints`) a white fill and colour encode all other hexagons depending on their number of `datapoints`.
+We use the `hex.grid.layout` to produce as many path's as there are hexagons &mdash; as we would with `d3.hexbin()` &mdash; now, however, making sure we have as many hexagons to cover our entire GeoJSON polygon. We `translate` them into place and draw them with `hexgrid.hexagon()`. Lastly, we give our empty hexagons (`!d.datapoints`) a white fill and colour encode all other hexagons depending on their number of `datapoints`.
 
 
 
@@ -276,13 +276,13 @@ Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys 
 
 ## General notes on hexagonal binning
 
-Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tesselated. As a result point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
+Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tesselated. As a result, point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
 
-While being the right choice in many cases two notes should be considered when using hexagonal binning - or any point location binning for that matter:
+While being the right choice in many cases two notes should be considered when using hexagonal binning &mdash; or any point location binning for that matter:
 
-### Use equal area projections for the base geography.
+#### Use equal area projections for the base geography.
 
-The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tesselation normalises space to equally sized units - hexagons in this case - which invites the reader to assume that each unit covers the same area. However, some projections like the ubiquitous Mercator projection will distort the area towards the poles significantly:
+The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tesselation normalises space to equally sized units &mdash; hexagons in this case &mdash; which invites the reader to assume that each unit covers the same area. However, some projections, like the ubiquitous Mercator projection, will distort area increasingly towards the poles:
 
 
 ![mercator](img/mercator.jpg)
@@ -293,6 +293,6 @@ Tesselating a Mercator world map with hexagons will produce many more hexagons p
 
 [Equal area projections](https://github.com/d3/d3-geo-projection#geoConicEqualArea) will help to avoid this problem to a large extent. 
 
-### Conduct the analysis with different hexagon radii and note/consider the potentially different outcomes.
+#### Consciously choose the hexagon radius size.
 
-Location binning is susceptible to the [Modifiable Areal Unit Problem](https://blog.cartographica.com/blog/2011/5/19/the-modifiable-areal-unit-problem-in-gis.html). The MAUP - or more specifically the _zonal_ MAUP - states that a change in size of the analysis units can lead to different results. In other words, changing the hexagons’ size can produce significantly different patterns - although the views across different sizes share the same data. Awareness is the only corrective to the MAUP. As such, it is recommended to test a few unit sizes before consciously settling for one, stating the reasons why and/or allowing the readers to see or chose different hexagon sizes for themselves.
+Location binning is susceptible to the [Modifiable Areal Unit Problem](https://blog.cartographica.com/blog/2011/5/19/the-modifiable-areal-unit-problem-in-gis.html). The MAUP &mdash; or more specifically the _zonal_ MAUP &mdash; states that a change in size of the analysis units can lead to different results. In other words, changing the hexagons’ size can produce significantly different patterns &mdash; although the views across different sizes share the same data. Awareness is the only corrective to the MAUP. As such, it is recommended to test a few unit sizes before consciously settling for one, stating the reasons why and/or allowing the readers to see or chose different hexagon sizes.
