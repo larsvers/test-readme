@@ -145,7 +145,7 @@ Now we can call our _hexgrid_ instance passing in our data.
 const hex = hexgrid(myPointLocationData);
 ```
 
-<a href="#grid-object" name="grid-object">#</a> This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-hexbin) does, augmented with an additional object called `grid`, which exposes the following properties:
+ This <a href="#grid-object" name="grid-object">#</a> will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-hexbin) does, augmented with an additional object called `grid`, which exposes the following properties:
 
 ![grid object](img/grid-object.jpg)
 
