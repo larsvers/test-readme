@@ -91,28 +91,28 @@ const geoPath = d3.geoPath().projection(projection);
 
 // Produce and configure the hexgrid instance.
 const hexMaker = d3.hexgrid()
-	.extent([width, height])
-	.geography(geo)
-    .projection(projection)
-	.pathGenerator(geoPath);
+  .extent([width, height])
+  .geography(geo)
+  .projection(projection)
+  .pathGenerator(geoPath);
 
 // Get the hexbin generator and the layout. 
 const hex = hexMaker(myPointLocationData);
 
 // Create a colour scale.
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
-	.domain(hex.grid.maxPoints.reverse()); 
+  .domain(hex.grid.maxPoints.reverse()); 
 
 // Draw the hexes.
 svg.append('g')
-	.selectAll('.hex')
-	.data(hex.grid.layout)
-	.enter()
-	.append('path')
-	.attr('class', 'hex')
-	.attr('transform', d => `translate(${d.x} ${d.y})`)
-	.attr('d', hex.hexagon())
-	.style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
+  .selectAll('.hex')
+  .data(hex.grid.layout)
+  .enter()
+  .append('path')
+  .attr('class', 'hex')
+  .attr('transform', d => `translate(${d.x} ${d.y})`)
+  .attr('d', hex.hexagon())
+  .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 
 
 ```
@@ -123,9 +123,9 @@ First, we create an `SVG` element. Let's assume our data represents mainland US 
 
 ```
 const svg = d3.select('#container')
-	.append('svg')
-	.attr(width, 'width')
-	.attr('height, 'height');
+  .append('svg')
+  .attr(width, 'width')
+  .attr('height, 'height');
 
 const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
@@ -136,10 +136,10 @@ Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexMaker`. 
 
 ```
 const hexMaker = d3.hexgrid()
-	.extent([width, height])
-	.geography(geo)
-    .projection(projection)
-	.pathGenerator(geoPath);
+  .extent([width, height])
+  .geography(geo)
+  .projection(projection)
+  .pathGenerator(geoPath);
 ```
 Now we can call our _hexgrid_ instance passing in our data. 
 
@@ -178,7 +178,7 @@ Working with points, for example, we might want to create the following colour s
 
 ```
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
-	.domain(hex.grid.extentPoints.reverse()); 
+  .domain(hex.grid.extentPoints.reverse()); 
 ```
 Here, we decide to encode the number of points per hexagon as colours along the spectrum of the [viridis colour map](https://github.com/d3/d3-scale-chromatic#interpolateViridis) and create an appropriate colour scale. We reverse the extent as we want to map the maximum value to the darkest colour, which the viridis colour space starts with.
 
@@ -186,14 +186,14 @@ Finally, we build the visual:
 
 ```
 svg.append('g')
-	.selectAll('.hex')
-	.data(hex.grid.layout)
-	.enter()
-	.append('path')
-	.attr('class', 'hex')
-	.attr('transform', d => `translate(${d.x} ${d.y})`)
-	.attr('d', hexgrid.hexagon())
-	.style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
+  .selectAll('.hex')
+  .data(hex.grid.layout)
+  .enter()
+  .append('path')
+  .attr('class', 'hex')
+  .attr('transform', d => `translate(${d.x} ${d.y})`)
+  .attr('d', hexgrid.hexagon())
+  .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 
 ```
 We use the `hex.grid.layout` to produce as many path's as there are hexagons - as we would with `d3.hexbin()` - now, however, making sure we have as many hexagons to cover our entire GeoJSON polygon. We `translate` them into place and draw them with `hexgrid.hexagon()`. Lastly, we give our empty hexagons (`!d.datapoints`) a white fill and colour encode all other hexagons depending on their number of `datapoints`.
