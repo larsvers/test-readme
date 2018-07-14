@@ -10,6 +10,23 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
+
+## Install
+
+```
+npm install d3-hexgrid
+```
+
+You can also download the build files [from here]() TODO link!!.
+
+Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
+
+```
+<script src="https://unpkg.com/d3-hexgrid.js"></script>
+```
+TODO check if this works
+
+
 ## Examples
 
 #### Militarised interstate disputes in Europe 1816-2001
@@ -40,7 +57,7 @@ Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
 ### Cover correction
 
-The tessellation aspect might become clear in these examples. The edge cover calculation might not. In short, _d3.hexgrid_ identifies all **edge hexagons** that partly lie beyond the borders of the geography&mdash;or more general, the base image presented. In a next step it calculates the edge hexagon's **cover**: the area the edge hexagon lies within the bounds of the base image in percent. Lastly, the **point density** will be calculated by: 
+The tessellation aspect might become clear in these examples. The edge cover calculation might not. In short, _d3.hexgrid_ identifies all **edge hexagons** that partly lie beyond the borders of the geography, or more general: the base image presented. In a next step it calculates the edge hexagon's **cover**: the area the edge hexagon lies within the bounds of the base image in percent. Lastly, the **point density** will be calculated by: 
 
 _Point density = Points in hexagon / Hexagon area in px<sup>2</sup> * Cover_
 
@@ -50,30 +67,15 @@ A comparison:
 
 Both maps encode the number of Farmer's Markets per hexagon. Yellow represents a low, purple a high number. The edge hexagons of the upper map are not cover corrected, the edge hexagons of the lower map are. 
 
-The edge hexagon at the south-eastern tip of Florida we're comparing has a cover of 55%, meaning 55% of the hexagon's area are inland, 45% are in the Atlantic. There are a total of 22 Farmer's Markets in this hexagon. Not cover corrected, the hexagon would have a point density of 0.09 and would receive a dark blue with the colour scale of choice. If cover corrected, its real point density increases to 0.17 and it is coloured in a dark purple&mdash;indicating higher point density as it should.
+The edge hexagon at the south-eastern tip of Florida we're comparing has a cover of 55%, meaning 55% of the hexagon's area is inland, 45% is in the Atlantic. There are a total of 22 Farmer's Markets in this hexagon. Not cover corrected, the hexagon would have a point density of 0.09 and would be filled in a dark blue with the colour scale of choice. If cover corrected, its real point density increases to 0.17 and it is coloured in a dark purple&mdash;indicating higher point density as it should.
 
-Differences might be subtle but are noticeable.
+Differences might be subtle but noticeable.
 
 Please see [this notebook](LINK) LINK!! for a description of the overall algorithm in general and the cover calculation in particular. 
 
 
-## Install
-
-```
-npm install d3-hexgrid
-```
-
-You can also download the build files [from here]() TODO link!!.
-
-Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
-
-```
-<script src="https://unpkg.com/d3-hexgrid.js"></script>
-```
-TODO check if this works
-
-
 ## Example usage
+
 Here's a bare bone example usage of _d3-hexgrid_.
 
 ```
@@ -89,14 +91,14 @@ const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 
 // Produce and configure the hexgrid instance.
-const hexMaker = d3.hexgrid()
+const hexgrid = d3.hexgrid()
   .extent([width, height])
   .geography(geo)
   .projection(projection)
   .pathGenerator(geoPath);
 
 // Get the hexbin generator and the layout. 
-const hex = hexMaker(myPointLocationData);
+const hex = hexgrid(myPointLocationData);
 
 // Create a colour scale.
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
@@ -128,10 +130,10 @@ const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 ```
-Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexMaker`. We immediately configure it by passing in the extent, the GeoJOSN, the projection and the path-generator.
+Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexgrid`. We immediately configure it by passing in the extent, the GeoJOSN, the projection and the path-generator.
 
 ```
-const hexMaker = d3.hexgrid()
+const hexgrid = d3.hexgrid()
   .extent([width, height])
   .geography(geo)
   .projection(projection)
@@ -140,7 +142,7 @@ const hexMaker = d3.hexgrid()
 Now we can call our _hexgrid_ instance passing in our data. 
 
 ```
-const hex = hexMaker(myPointLocationData);
+const hex = hexgrid(myPointLocationData);
 ```
 
 This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-hexbin) does, augmented with an additional object called `grid`, which exposes the following properties:
