@@ -77,7 +77,6 @@ TODO check if this works
 Here's a bare bone example usage of _d3-hexgrid_.
 
 ```
-
 // Container.
 const svg = d3.select('#container')
   .append('svg')
@@ -113,8 +112,6 @@ svg.append('g')
   .attr('transform', d => `translate(${d.x} ${d.y})`)
   .attr('d', hex.hexagon())
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
-
-
 ```
 
 ### Breaking the example down:
@@ -130,7 +127,6 @@ const svg = d3.select('#container')
 const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
-
 ```
 Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexMaker`. We immediately configure it by passing in the extent, the GeoJOSN, the projection and the path-generator.
 
@@ -194,7 +190,6 @@ svg.append('g')
   .attr('transform', d => `translate(${d.x} ${d.y})`)
   .attr('d', hexgrid.hexagon())
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
-
 ```
 We use the `hex.grid.layout` to produce as many path's as there are hexagons - as we would with `d3.hexbin()` - now, however, making sure we have as many hexagons to cover our entire GeoJSON polygon. We `translate` them into place and draw them with `hexgrid.hexagon()`. Lastly, we give our empty hexagons (`!d.datapoints`) a white fill and colour encode all other hexagons depending on their number of `datapoints`.
 
