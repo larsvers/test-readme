@@ -145,7 +145,7 @@ Now we can call our _hexgrid_ instance passing in our data.
 const hex = hexgrid(myPointLocationData);
 ```
 
-This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-hexbin) does, augmented with an additional object called `grid`, which exposes the following properties:
+This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-hexbin) does, augmented with an additional object called <a href="#grid-object"><code<grid</code</a>, which exposes the following properties:
 
 ![grid object](img/grid-object.jpg)
 
@@ -161,18 +161,17 @@ This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-
 	- `datapoints` is the number of points binned in the hexagon.
 	- `datapointsWt` is the number of points weighted by the inverse cover.
 	- `pointDensity` is the hexagon's point density.
-	- `gridpoint` marks the hexagon as part of the initial hexgrid. This allows you to distinguish hexagons added by the data. Imprecise latitude and longitude data values can lead to the production of hexagons just outside the hexgrid. _d3.hexgrid_ will still capture and produce them. But you can spot and treat them by filtering for `gridpoint === 0`.
+	- `gridpoint` marks the hexagon as part of the initial hexgrid. This allows you to identify hexagons added by the data. Imprecise latitude and longitude data values can lead to the generation of hexagons just outside the hexgrid. _d3.hexgrid_ will still capture and produce them. But you can spot and treat them by filtering for `gridpoint === 0`.
 	- `x` and `y` are the hexagon centre positions in pixel coordinates.
 
 * `extentPoints` is the extent of point location counts over all hexagons in the form _[min number of points, max number of points]_.
 * `extentPointsWeighted` is the extent of point location counts weighted by their cover over all hexagons in the form _[min number of weighted points, max number of weighted points]_.
 * `extentPointDensity` is the extent of cover adjusted point density over all hexagons in the form _[min point density, max point density]_.
 
-	These extents can be used to set the domain of a colour scale when encoding number of points or point density.
+	These extents can be used to set a colour scale domain when encoding number of points or point density.
 
 	
 Working with points, for example, we might want to create the following colour scale:
-
 
 ```
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
@@ -207,7 +206,7 @@ Constructs a hexgrid generator called _hexgrid_ in the following. To be configur
 
 <a href="#hex" name="hex">#</a> _hexgrid(⟨ data ⟩ [, ⟨ names ⟩])_
 
-Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. See [Example usage](#example-usage) for details. Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
+Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. See [above for `grid` specs](#grid-object). Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
 
 Assuming you want to visualise restaurants on a map and have a restaurant dataset containing the variables `website` and `opening_times` you can say:
 
@@ -236,12 +235,12 @@ _Required_. ⟨ _object_ ⟩ represents the base polygon for the hexgrid in GeoJ
 
 <a href="#hex-projection" name="hex-projection">#</a> _hexgrid._<b>projection</b>(⟨ _function_ ⟩)
 
-_Required_. ⟨ _function_ ⟩ is the projection function for the previously defined _geography_ commonly specified within the bounds of _extent_. See [here](https://github.com/d3/d3-geo) or [here](https://github.com/d3/d3-geo-projection) for a large pond of projection functions.
+_Required_. ⟨ _function_ ⟩ is the projection function for the previously defined [_geography_](#hex-geography) commonly specified within the bounds of [_extent_](#hex-extent). See [here](https://github.com/d3/d3-geo) or [here](https://github.com/d3/d3-geo-projection) for a large pond of projection functions.
 
 
 <a href="#hex-pathGenerator" name="hex-pathGenerator">#</a> _hexgrid._<b>pathGenerator</b>(⟨ _function_ ⟩)
 
-_Required_. ⟨ _function_ ⟩ is the path generator to produce the drawing instructions of the previously defined _geography_ based on the also previously defined _projection_.
+_Required_. ⟨ _function_ ⟩ is the path generator to produce the drawing instructions of the previously defined [_geography_](#hex-geography) based on the also previously defined [_projection_](#hex-projection).
 
 
 <a href="#hex-hexRadius" name="hex-hexRadius">#</a> _hexgrid._<b>hexRadius</b>(⟨ _number_ ⟩)
@@ -252,7 +251,7 @@ _Optional_. The desired hexagon radius in pixel. Defaults to 4.
 
 <a href="#hex-edgePrecision" name="hex-edgePrecision">#</a> _hexgrid._<b>edgePrecision</b>(⟨ _number_ ⟩)
 
-_Optional_. The edge precision sets the size of the internally produced canvas to identify which area of the edge hexagon is covered by the geography. The higher the precision, the better the pixel detection at the hexagon edges. Values can be larger than 1 for small visuals. Values smaller than 0.3 will be coerced to 0.3. The default value of 1 will be fine for most purposes.
+_Optional_. The edge precision sets the size of the internally produced canvas to identify which area of the edge hexagon is covered by the [_geography_](#hex-geography). The higher the precision, the better the pixel detection at the hexagon edges. Values can be larger than 1 for small visuals. Values smaller than 0.3 will be coerced to 0.3. The default value of 1 will be fine for most purposes.
 
 
 <a href="#hex-gridExtend" name="hex-gridExtend">#</a> _hexgrid._<b>gridExtend</b>(⟨ _number_ ⟩)
