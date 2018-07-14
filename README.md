@@ -33,7 +33,7 @@ TODO check if this works
 
 ![disputes](img/disputes.jpg)
 
-<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv). Clip-path applied</sub>
+<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv). Additional clip-path applied.</sub>
 
 
 #### Cities across the world
