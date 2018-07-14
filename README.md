@@ -1,6 +1,6 @@
 # d3-hexgrid
 
-A wrapper of _d3-hexbin_, _**d3-hexgrid**_ does three things:
+A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ does three things:
 
 1. It allows you to [regularly tesselate](https://www.mathsisfun.com/geometry/tessellation.html) polygons with hexagons. _**d3-hexbin**_ produces hexagons where there is data. _**d3-hexgrid**_ produces hexagons where there is a base geography you define.
 
