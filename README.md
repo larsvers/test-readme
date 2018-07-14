@@ -276,18 +276,23 @@ Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys 
 
 ## General notes on hexagonal binning
 
-Hexagons are good for binning point location data as they are the shape closest to circles that can be regularly tesselated. AS a result point distributions within the hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases). 
+Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tesselated. As a result point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
 
-However, the world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tesselation normalises space to equally sized units - hexagons in this case - which invites considering these units the same size. However, some projections like the ubiquitous Mercator projection will distort the area towards the poles significantly:
+While being the right choice in many cases two notes should be considered when using hexagonal binning - or any point location binning for that matter:
+
+### Use equal area projections for the base geography.
+
+The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tesselation normalises space to equally sized units - hexagons in this case - which invites the reader to assume that each unit covers the same area. However, some projections like the ubiquitous Mercator projection will distort the area towards the poles significantly:
+
 
 ![mercator](img/mercator.jpg)
 
 <sub>All red circles are of the same area. Source: [D3 in depth](http://d3indepth.com/geographic/) by [Peter Cook](http://animateddata.co.uk/)
 
-Tesselating a mercator world map with hexagons will produce many more hexagons per square mile in Norway compared to Brazil. 
+Tesselating a Mercator world map with hexagons will produce many more hexagons per square mile in Norway compared to Brazil.
 
-Instead, consider using an [equal area projections](https://github.com/d3/d3-geo-projection#geoConicEqualArea) which reduces the problem dramatically.
+[Equal area projections](https://github.com/d3/d3-geo-projection#geoConicEqualArea) will help to avoid this problem to a large extent. 
 
-Another caveat with location binning is the [Modifiable Areal Unit Problem](https://blog.cartographica.com/blog/2011/5/19/the-modifiable-areal-unit-problem-in-gis.html) or MAUP, stating that a change in size of the analysis units can lead to different results. Something to be aware of, a reason to analyse the same data with different sizes, and - if appropriate - explain found differencies to the user, maybe by showing results with different sizes or even allowing the aware user to change the hexagon sizes.
+### Conduct the analysis with different hexagon radii and note/consider the potentially different outcomes.
 
-
+Location binning is susceptible to the [Modifiable Areal Unit Problem](https://blog.cartographica.com/blog/2011/5/19/the-modifiable-areal-unit-problem-in-gis.html). The MAUP - or more specifically the _zonal_ MAUP - states that a change in size of the analysis units can lead to different results. In other words, changing the hexagons’ size can produce significantly different patterns - although the views across different sizes share the same data. Awareness is the only corrective to the MAUP. As such, it is recommended to test a few unit sizes before consciously settling for one, stating the reasons why and/or allowing the readers to see or chose different hexagon sizes for themselves.
