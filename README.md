@@ -130,7 +130,7 @@ const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 ```
-Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexgrid`. We immediately configure it by passing in the extent, the GeoJOSN, the projection and the path-generator.
+Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexgrid`. We immediately configure it by passing in the extent, the GeoJSON, the projection and the path-generator.
 
 ```
 const hexgrid = d3.hexgrid()
