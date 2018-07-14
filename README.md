@@ -4,9 +4,9 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 1. It allows you to [regularly tessellate](https://www.mathsisfun.com/geometry/tessellation.html) polygons with hexagons. _**d3-hexbin**_ produces hexagons where there is data. _**d3-hexgrid**_ produces hexagons where there is a base geography you define.
 
-2. Hexagons at the edge of your geography are often truncated by the geography's border. _d3.hexgrid_ calculates the inside-area of these edge hexagons (_cover_) allowing you to encode edge data based on the correct point density. [See below for more](#cover-correction).
+2. Hexagons at the edge of your geography are often truncated by the geography's border. _d3.hexgrid_ calculates the inside-area or _cover_ of these edge hexagons allowing you to encode edge data based on the correct point density. [See below for more](#cover-correction).
 
-3. Lastly, _d3.hexgrid_ provides an extended layout generator for your point location data to simplify the visual encoding of your data. The layout rolls up the number of point locations per hexagon, adds cover and point density and provides a point count and point density extents for colour scale domains. [See below for more](#breaking-this-down:).
+3. Lastly, _d3.hexgrid_ provides an extended layout generator for your point location data to simplify the visual encoding of your data. The layout rolls up the number of point locations per hexagon, adds cover and point density and provides point count and point density extents for colour scale domains. [See below for more](#breaking-this-down:).
 
 Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
@@ -16,26 +16,26 @@ Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
 ![disputes](img/disputes.jpg)
 
-<sub>data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv)</sub>
+<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv). Clip-path applied</sub>
 
 
 #### Cities across the world
 
 ![cities](img/cities.jpg)
 
-<sub>data source: [maxmind](http://www.maxmind.com/)</sub>
+<sub>Data source: [maxmind](http://www.maxmind.com/). Not equal area projected.</sub>
 
 #### Farmers Markets in the US
 
 ![farmer markets](img/markets.jpg)
 
-<sub>data source: [USDA](https://www.ams.usda.gov/local-food-directories/farmersmarkets)</sub>
+<sub>Data source: [USDA](https://www.ams.usda.gov/local-food-directories/farmersmarkets)</sub>
 
-#### Postboxes in the UK 
+#### Post boxes in the UK 
 
 ![postboxes](img/postboxes.jpg)
 
-<sub>data source: [dracos.co.uk](http://dracos.co.uk/) from [here](http://dracos.co.uk/made/locating-postboxes) via [Free GIS Data](https://freegisdata.rtwilson.com/)</sub>
+<sub>Data source: [dracos.co.uk](http://dracos.co.uk/) from [here](http://dracos.co.uk/made/locating-postboxes) via [Free GIS Data](https://freegisdata.rtwilson.com/)</sub>
 
 
 ### Cover correction
