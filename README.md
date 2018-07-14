@@ -274,7 +274,7 @@ have to specify them as <code><i>hexgrid</i>.geokeys(['upDown', 'leftRight'])</c
 
 Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys in your passed in user variables as they are reserved keys for the pixel coordinates of the layout.
 
-## Using hexagons in mapping
+## General notes on hexagonal binning
 
 Hexagons are good for binning point location data as they are the shape closest to circles that can be regularly tesselated. AS a result point distributions within the hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases). 
 
