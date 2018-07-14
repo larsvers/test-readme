@@ -80,9 +80,9 @@ Here's a bare bone example usage of _d3-hexgrid_.
 
 // Container.
 const svg = d3.select('#container')
-	.append('svg')
-	.attr(width, 'width')
-	.attr('height, 'height');
+  .append('svg')
+  .attr(width, 'width')
+  .attr('height, 'height');
 
 // Geo data, projection and path.
 const geo = topojson.feature(topo, topo.objects.us_mainland);
