@@ -270,7 +270,7 @@ _Optional_. _d3.hexgrid_ will try to guess the key names for longitude and latit
 * _longitude_, _long_, _lon_, _lng_, _lambda_ as well as 
 * _latitude_, _lat_ and _phi_.
 
-If you choose other names for them like for example _upDown_ and _leftRight_, you 
+If you choose other names like for example _upDown_ and _leftRight_, you 
 have to specify them as <code><i>hexgrid</i>.geokeys(['upDown', 'leftRight'])</code> with the first element representing longitude and the second latitude. 
 
 Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys in your passed in user variables as they are reserved keys for the pixel coordinates of the layout.
