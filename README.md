@@ -55,7 +55,7 @@ TODO check if this works
 <sub>Data source: [dracos.co.uk](http://dracos.co.uk/) from [here](http://dracos.co.uk/made/locating-postboxes) via [Free GIS Data](https://freegisdata.rtwilson.com/)</sub>
 
 
-### Cover correction
+### Edge Cover
 
 The tessellation aspect might become clear in these examples. The edge cover calculation might not. In short, _d3.hexgrid_ identifies all **edge hexagons** that partly lie beyond the borders of the geography, or more general: the base image presented. In a next step it calculates the edge hexagon's **cover**: the area the edge hexagon lies within the bounds of the base image in percent. Lastly, the **point density** will be calculated by: 
 
@@ -279,7 +279,7 @@ Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys 
 
 Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tessellated. As a result, point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
 
-While being the right choice in many cases two notes should be considered when using hexagonal binning&mdash;or any point location binning for that matter:
+While being the right choice in many cases, two notes should be considered when using hexagonal binning&mdash;or any point location binning for that matter:
 
 #### Use equal area projections for the base geography.
 
@@ -288,9 +288,9 @@ The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) a
 
 ![mercator](img/mercator.jpg)
 
-<sub>All red circles are of the same area. Source: [D3 in depth](http://d3indepth.com/geographic/) by [Peter Cook](http://animateddata.co.uk/)
+<sub>Source: [D3 in depth](http://d3indepth.com/geographic/) by [Peter Cook](http://animateddata.co.uk/)
 
-Tessellating a Mercator world map with hexagons will produce many more hexagons per square mile in Norway compared to Brazil.
+All red circles on above map are of the same area. As a result, tessellating a Mercator world map with hexagons will produce many more hexagons per square mile in Norway compared to Brazil, for example.
 
 [Equal area projections](https://github.com/d3/d3-geo-projection#geoConicEqualArea) will help to avoid this problem to a large extent. 
 
