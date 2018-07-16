@@ -67,7 +67,7 @@ A comparison:
 
 Both maps encode the number of Farmer's Markets per hexagon. Yellow represents a low, purple a high number. The edge hexagons of the upper map are not cover corrected, the edge hexagons of the lower map are. 
 
-The edge hexagon at the south-eastern tip of Florida we're comparing has a cover of 55%, meaning 55% of the hexagon's area is inland, 45% is in the Atlantic. There are a total of 22 Farmer's Markets in this hexagon. Not cover corrected, the hexagon would have a point density of 0.09 and would be filled in a dark blue with the colour scale of choice. If cover corrected, its real point density increases to 0.17 and it is coloured in a dark purple&mdash;indicating higher point density as it should.
+The edge hexagon at the south-eastern tip of Florida we're comparing has a cover of 55%, meaning 55% of the hexagon's area is inland, 45% is in the Atlantic. There are a total of 22 Farmer's Markets in this hexagon. Not cover corrected, the hexagon would have a point density of 0.09 and would be filled in a dark blue with the colour scale of choice. When cover corrected, its real point density increases to 0.17 and it is coloured in a dark purple&mdash;indicating higher point density as it should.
 
 Differences might be subtle but noticeable.
 
@@ -111,7 +111,7 @@ svg.append('g')
   .enter()
   .append('path')
   .attr('class', 'hex')
-  .attr('transform', d => `translate(${d.x} ${d.y})`)
+  .attr('transform', d => `translate(${d.x}, ${d.y})`)
   .attr('d', hex.hexagon())
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 ```
@@ -130,7 +130,7 @@ const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 ```
-Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we call `hexgrid`. We immediately configure it by passing in the extent, the GeoJSON, the projection and the path-generator.
+Next, we use `d3.hexgrid()` to produce a _hexgrid_ instance we creatively call `hexgrid`. We immediately configure it by passing in the extent, the GeoJSON, the projection and the path-generator.
 
 ```
 const hexgrid = d3.hexgrid()
@@ -139,7 +139,7 @@ const hexgrid = d3.hexgrid()
   .projection(projection)
   .pathGenerator(geoPath);
 ```
-Now we can call our _hexgrid_ instance passing in our data. 
+Now we can call our _hexgrid_ instance passing in the data. 
 
 ```
 const hex = hexgrid(myPointLocationData);
@@ -151,7 +151,7 @@ const hex = hexgrid(myPointLocationData);
 
 * `imageCenters` is an array of all [x, y] hexagon centres of the hexgrid.
 
-* `layout` is an array of arrays, each sub-array representing a hexagon in the grid. Each sub-array holds all point locations per hexagon in an object exposing at least _x_ and _y_ pixel coordinates as well as aggregate values. Here's an example hexagon layout object with three point locations or _datapoints_:
+* `layout` is an array of arrays, each sub-array representing a hexagon in the grid. Each sub-array holds all point locations per hexagon in an object exposing at least _x_ and _y_ pixel coordinates as well as aggregate values. Here's an example hexagon layout sub-array with three point locations (or _datapoints_):
 
 	![layout object](img/layout-object.jpg)
 	
@@ -188,7 +188,7 @@ svg.append('g')
   .enter()
   .append('path')
   .attr('class', 'hex')
-  .attr('transform', d => `translate(${d.x} ${d.y})`)
+  .attr('transform', d => `translate(${d.x}, ${d.y})`)
   .attr('d', hexgrid.hexagon())
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 ```
@@ -206,7 +206,7 @@ Constructs a hexgrid generator called _hexgrid_ in the following. To be configur
 
 <a href="#hex" name="hex">#</a> _hexgrid(⟨ data ⟩ [, ⟨ names ⟩])_
 
-Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for `grid` specs](#grid-object). Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
+Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for the `grid`'s object's properties](#grid-object). Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
 
 Assuming you want to visualise restaurants on a map and have a restaurant dataset containing the variables `website` and `opening_times` you can say:
 
