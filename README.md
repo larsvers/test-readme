@@ -206,7 +206,7 @@ Constructs a hexgrid generator called _hexgrid_ in the following. To be configur
 
 <a href="#hex" name="hex">#</a> _hexgrid(⟨ data ⟩ [, ⟨ names ⟩])_
 
-Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for the `grid`'s object's properties](#grid-object). Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
+Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for the `grid` object's properties](#grid-object). Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
 
 Assuming you want to visualise restaurants on a map and have a restaurant dataset containing the variables `website` and `opening_times` you can say:
 
