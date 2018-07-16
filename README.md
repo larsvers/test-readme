@@ -256,7 +256,7 @@ _Optional_. The edge precision sets the size of the internally produced canvas t
 
 <a href="#hex-gridExtend" name="hex-gridExtend">#</a> _hexgrid._<b>gridExtend</b>(⟨ _number_ ⟩)
 
-_Optional_. _gridExtend_ controls the size of the base geography. _gridExtend_ allows you to "inflate" your geography and can be used to draw more hexagons around the edges that otherwise would not be drawn.
+_Optional_. _gridExtend_ controls the size of the base geography. _gridExtend_ allows you to "inflate" your hexgrid and can be used to draw more hexagons around the edges that otherwise would not be drawn.
 
 ![gridExtend](img/gridExtend.jpg)
 
