@@ -6,7 +6,7 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 2. Hexagons at the edge of your geography are often truncated by the geography's border. _d3.hexgrid_ calculates the inside-area or _cover_ of these edge hexagons allowing you to encode edge data based on the correct point density. [See below for more](#cover-correction).
 
-3. Lastly, _d3.hexgrid_ provides an extended layout generator for your point location data to simplify the visual encoding of your data. The layout rolls up the number of point locations per hexagon, adds cover and point density and provides point count and point density extents for colour scale domains. [See below for more](#breaking-this-down).
+3. Lastly, _d3.hexgrid_ provides an extended layout generator for your point location data to simplify the visual encoding of your data. The layout rolls up the number of point locations per hexagon, adds cover and point density and provides point count and point density extents for colour scale domains. [See below for more](#breaking-the-example-down).
 
 Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
