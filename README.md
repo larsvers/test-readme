@@ -44,13 +44,13 @@ TODO check if this works
 
 #### Farmers Markets in the US
 
-![farmer markets](img/markets.jpg)
+![farmer markets](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/markets.jpg)
 
 <sub>Data source: [USDA](https://www.ams.usda.gov/local-food-directories/farmersmarkets)</sub>
 
 #### Post boxes in the UK 
 
-![postboxes](img/postboxes.jpg)
+![postboxes](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/postboxes.jpg)
 
 <sub>Data source: [dracos.co.uk](http://dracos.co.uk/) from [here](http://dracos.co.uk/made/locating-postboxes) via [Free GIS Data](https://freegisdata.rtwilson.com/)</sub>
 
@@ -63,7 +63,7 @@ _Point density = Points in hexagon / Hexagon area in px<sup>2</sup> * Cover_
 
 A comparison:
 
-![edge comparison](img/edge-compare.jpg)
+![edge comparison](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/edge-compare.jpg)
 
 Both maps encode the number of Farmer's Markets per hexagon. Yellow represents a low, purple a high number. The edge hexagons of the upper map are not cover corrected, the edge hexagons of the lower map are. 
 
@@ -147,13 +147,13 @@ const hex = hexgrid(myPointLocationData);
 
  This will return a hexbin generator as [`d3.hexbin()`](https://github.com/d3/d3-hexbin) does, augmented with an additional object called <a href="#grid-object" name="grid-object">`grid`</a>, which exposes the following properties:
 
-![grid object](img/grid-object.jpg)
+![grid object](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/grid-object.jpg)
 
 * `imageCenters` is an array of all [x, y] hexagon centres of the hexgrid.
 
 * `layout` is an array of arrays, each sub-array representing a hexagon in the grid. Each sub-array holds all point locations per hexagon in an object exposing at least _x_ and _y_ pixel coordinates as well as aggregate values. Here's an example hexagon layout sub-array with three point locations (or _datapoints_):
 
-	![layout object](img/layout-object.jpg)
+	![layout object](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/layout-object.jpg)
 	
 	The aggregate values per hexagon are:
 
@@ -216,7 +216,7 @@ hexgrid(restaurantData, ['website', 'opening_times'])
 
 As a result, objects in the <code>_hexgrid_.grid.layout</code> array will contain the two variables in addition to the default _x_ and _y_ coordinates:
 
-![layout-object-vars](img/layout-object-vars.jpg)
+![layout-object-vars](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/layout-object-vars.jpg)
 
 <a href="#hex-extent" name="hex-extent">#</a> _hexgrid._<b>extent</b>(⟨ _Array_ ⟩)
 
@@ -258,7 +258,7 @@ _Optional_. The edge precision sets the size of the internally produced canvas t
 
 _Optional_. _gridExtend_ controls the size of the base geography. _gridExtend_ allows you to "inflate" your hexgrid and can be used to draw more hexagons around the edges that otherwise would not be drawn.
 
-![gridExtend](img/gridExtend.jpg)
+![gridExtend](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/gridExtend.jpg)
 
 _gridExtend_ is measured in units of _hexRadius_. For example, a _gridExtend_ value of 2 would extend the grid by _2 &times; hexRadius_ pixel.
 
@@ -286,7 +286,7 @@ While being the right choice in many cases, two notes should be considered when 
 The world is [something like a sphere](https://en.wikipedia.org/wiki/Spheroid) and there are numerous ways to project a sphere onto a 2D plane. The projection used has an important effect on the analysis. Any tessellation normalises space to equally sized units&mdash;hexagons in this case&mdash;which invites the reader to assume that each unit covers the same area. However, some projections, like the ubiquitous Mercator projection, will distort area increasingly towards the poles:
 
 
-![mercator](img/mercator.jpg)
+![mercator](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/mercator.jpg)
 
 <sub>Source: [D3 in depth](http://d3indepth.com/geographic/) by [Peter Cook](http://animateddata.co.uk/)
 
