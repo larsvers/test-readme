@@ -205,7 +205,7 @@ We use the `hex.grid.layout` to produce as many path's as there are hexagons&mda
 Constructs a hexgrid generator called _hexgrid_ in the following. To be configured before calling it with the data you plan to visualise. 
 
 
-<a href="#hex" name="hex">#</a> _hexgrid_(_data_ [, _names_ ])
+<a href="#hex" name="hex">#</a> _hexgrid_(_data_[, _names_])
 
 Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for the `grid` object's properties](#grid-object). Optionally _names_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
 
