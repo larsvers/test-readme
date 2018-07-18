@@ -10,7 +10,7 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
-Go straight to the [API-reference](#api-reference).
+Go straight to the [API reference](#api-reference).
 
 
 ## Install
