@@ -10,7 +10,7 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
-📖 [API-reference](#api-reference)
+Go straight to the [API-reference](#api-reference).
 
 
 ## Install
@@ -26,7 +26,6 @@ Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 ```
 <script src="https://unpkg.com/d3-hexgrid"></script>
 ```
-TODO check if this works
 
 
 ## Examples
@@ -206,9 +205,9 @@ We use the `hex.grid.layout` to produce as many path's as there are hexagons&mda
 Constructs a hexgrid generator called _hexgrid_ in the following. To be configured before calling it with the data you plan to visualise. 
 
 
-<a href="#hex" name="hex">#</a> _hexgrid(⟨ data ⟩ [, ⟨ names ⟩])_
+<a href="#hex" name="hex">#</a> _hexgrid_(_data_ [, _names_ ])
 
-Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for the `grid` object's properties](#grid-object). Optionally _⟨ names ⟩_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
+Generates a hexbin generator augmented with a `grid` property, exposing the hexagon layout data as well as extents for point and point density measures. [See above for the `grid` object's properties](#grid-object). Optionally _names_ can be an array of strings, listing properties you would like to pass through from your original data to the grid layout.
 
 Assuming you want to visualise restaurants on a map and have a restaurant dataset containing the variables `website` and `opening_times` you can say:
 
