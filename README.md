@@ -77,7 +77,7 @@ Please see [this notebook](LINK) LINK!! for a description of the overall algorit
 
 ## Example usage
 
-Here's a bare bone example usage of _d3-hexgrid_.
+A lean example usage of _d3-hexgrid_.
 
 ```
 // Container.
