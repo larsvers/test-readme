@@ -38,7 +38,7 @@ TODO check if this works
 
 #### Cities across the world
 
-![cities](img/cities.jpg)
+![cities](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexbin/cities.jpg)
 
 <sub>Data source: [maxmind](http://www.maxmind.com/). Not equal area projected.</sub>
 
