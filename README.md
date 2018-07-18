@@ -219,9 +219,9 @@ As a result, objects in the <code>_hexgrid_.grid.layout</code> array will contai
 
 ![layout-object-vars](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/layout-object-vars.jpg)
 
-<a href="#hex-extent" name="hex-extent">#</a> _hexgrid._<b>extent</b>(⟨ _Array_ ⟩)
+<a href="#hex-extent" name="hex-extent">#</a> _hexgrid._<b>extent</b>([_extent_])
 
-_Required_. Sets the extent of the hexbin generator produced internally. ⟨ _Array_ ⟩ can come as either a 2D array specifying start and end point [[x₀, y₀], [x₁, y₁]], where x₀ is the left side of the bounding box, y₀ is the top, x₁ is the right and y₁ is the bottom. Alternatively ⟨ _Array_ ⟩ can be specified as an array of just width and height [x₁, y₁] with the top-left corner assumed to be [0, 0]. The following two statements are equivalent:
+_Required_. Sets the extent of the hexbin generator produced internally. _extent_ can come as either a 2D array specifying top left start and bottom right end point [[x₀, y₀], [x₁, y₁]]. Alternatively _extent_ can be specified as an array of just width and height [x₁, y₁] with the top-left corner assumed to be [0, 0]. The following two statements are equivalent:
 
 ```
 hexgrid.extent([[0, 0], [width, height]]);
@@ -229,33 +229,33 @@ hexgrid.extent([width, height]);
 ```
 
 
-<a href="#hex-geography" name="hex-geography">#</a> _hexgrid._<b>geography</b>(⟨ _object_ ⟩)
+<a href="#hex-geography" name="hex-geography">#</a> _hexgrid._<b>geography</b>([_object_])
 
-_Required_. ⟨ _object_ ⟩ represents the base polygon for the hexgrid in GeoJSON format. If you were to project a hexgrid onto Bhutan, ⟨ _object_ ⟩ would be a GeoJSON object of Bhutan. 
-
-
-<a href="#hex-projection" name="hex-projection">#</a> _hexgrid._<b>projection</b>(⟨ _function_ ⟩)
-
-_Required_. ⟨ _function_ ⟩ is the projection function for the previously defined [_geography_](#hex-geography) commonly specified within the bounds of [_extent_](#hex-extent). See [here](https://github.com/d3/d3-geo) or [here](https://github.com/d3/d3-geo-projection) for a large pond of projection functions.
+_Required_. _object_ represents the base polygon for the hexgrid in GeoJSON format. If you were to project a hexgrid onto Bhutan, _object_ would be a GeoJSON object of Bhutan. 
 
 
-<a href="#hex-pathGenerator" name="hex-pathGenerator">#</a> _hexgrid._<b>pathGenerator</b>(⟨ _function_ ⟩)
+<a href="#hex-projection" name="hex-projection">#</a> _hexgrid._<b>projection</b>([_projection_])
 
-_Required_. ⟨ _function_ ⟩ is the path generator to produce the drawing instructions of the previously defined [_geography_](#hex-geography) based on the also previously defined [_projection_](#hex-projection).
+_Required_. _projection_ is the projection function for the previously defined [_geography_](#hex-geography) commonly specified within the bounds of [_extent_](#hex-extent). See [here](https://github.com/d3/d3-geo) or [here](https://github.com/d3/d3-geo-projection) for a large pond of projection functions.
 
 
-<a href="#hex-hexRadius" name="hex-hexRadius">#</a> _hexgrid._<b>hexRadius</b>(⟨ _number_ ⟩)
+<a href="#hex-pathGenerator" name="hex-pathGenerator">#</a> _hexgrid._<b>pathGenerator</b>([_path_])
+
+_Required_. _path_ is the path generator to produce the drawing instructions of the previously defined [_geography_](#hex-geography) based on the also previously defined [_projection_](#hex-projection).
+
+
+<a href="#hex-hexRadius" name="hex-hexRadius">#</a> _hexgrid._<b>hexRadius</b>([_radius_])
 
 _Optional_. The desired hexagon radius in pixel. Defaults to 4.
 
 
 
-<a href="#hex-edgePrecision" name="hex-edgePrecision">#</a> _hexgrid._<b>edgePrecision</b>(⟨ _number_ ⟩)
+<a href="#hex-edgePrecision" name="hex-edgePrecision">#</a> _hexgrid._<b>edgePrecision</b>([_precision_])
 
 _Optional_. The edge precision sets the size of the internally produced canvas to identify which area of the edge hexagon is covered by the [_geography_](#hex-geography). The higher the precision, the better the pixel detection at the hexagon edges. Values can be larger than 1 for small visuals. Values smaller than 0.3 will be coerced to 0.3. The default value of 1 will be fine for most purposes.
 
 
-<a href="#hex-gridExtend" name="hex-gridExtend">#</a> _hexgrid._<b>gridExtend</b>(⟨ _number_ ⟩)
+<a href="#hex-gridExtend" name="hex-gridExtend">#</a> _hexgrid._<b>gridExtend</b>([_extension_])
 
 _Optional_. _gridExtend_ controls the size of the base geography. _gridExtend_ allows you to "inflate" your hexgrid and can be used to draw more hexagons around the edges that otherwise would not be drawn.
 
@@ -264,7 +264,7 @@ _Optional_. _gridExtend_ controls the size of the base geography. _gridExtend_ a
 _gridExtend_ is measured in units of _hexRadius_. For example, a _gridExtend_ value of 2 would extend the grid by _2 &times; hexRadius_ pixel.
 
 
-<a href="#hex-geoKeys" name="hex-geoKeys">#</a> _hexgrid._<b>geoKeys</b>(⟨ _Array_ ⟩)
+<a href="#hex-geoKeys" name="hex-geoKeys">#</a> _hexgrid._<b>geoKeys</b>([_keys_])
 
 _Optional_. _d3.hexgrid_ will try to guess the key names for longitude and latitude variables in your data. The following case-insensitive key names will be sniffed out: 
 
@@ -274,7 +274,7 @@ _Optional_. _d3.hexgrid_ will try to guess the key names for longitude and latit
 If you choose other names like for example _upDown_ and _leftRight_, you 
 have to specify them as <code><i>hexgrid</i>.geokeys(['upDown', 'leftRight'])</code> with the first element representing longitude and the second latitude. 
 
-Please don't call your geo keys `x` or `y` or otherwise include `x` or `y` keys in your passed in user variables as they are reserved keys for the pixel coordinates of the layout.
+Don't call your geo keys `x` or `y` or otherwise include `x` and/or `y` keys in your passed in user variables as they are reserved keys for the pixel coordinates of the layout.
 
 ## General notes on hexagonal binning
 
