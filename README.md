@@ -10,6 +10,8 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 Please [see this notebook](LINK) LINK!! for a description of the algorithm.
 
+📖 [API-reference](#api-reference)
+
 
 ## Install
 
@@ -22,7 +24,7 @@ You can also download the build files [from here]() TODO link!!.
 Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 
 ```
-<script src="https://unpkg.com/d3-hexgrid.js"></script>
+<script src="https://unpkg.com/d3-hexgrid"></script>
 ```
 TODO check if this works
 
