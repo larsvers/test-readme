@@ -298,3 +298,7 @@ All red circles on above map are of the same area. As a result, tessellating a M
 #### Consciously choose the hexagon radius size.
 
 Location binning is susceptible to the [Modifiable Areal Unit Problem](https://blog.cartographica.com/blog/2011/5/19/the-modifiable-areal-unit-problem-in-gis.html). The MAUP&mdash;or more specifically the _zonal_ MAUP&mdash;states that a change in size of the analysis units can lead to different results. In other words, changing the hexagons’ size can produce significantly different patterns&mdash;although the views across different sizes share the same data. Awareness is the only corrective to the MAUP. As such, it is recommended to test a few unit sizes before consciously settling for one, stating the reasons why and/or allowing the readers to see or chose different hexagon sizes.
+
+#### Thanks!
+
+A big thanks to [Philippe Rivière](https://illisible.net/philippe-riviere) for bringing the grid layout algorithm on track and sparking the idea for the edge cover calculation. This plug-in would look different and be significantly less performant without his elegant ideas.
