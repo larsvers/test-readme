@@ -103,7 +103,7 @@ const hex = hexgrid(myPointLocationData);
 
 // Create a colour scale.
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
-  .domain(hex.grid.maxPoints.reverse()); 
+  .domain([...hex.grid.maxPoints].reverse()); 
 
 // Draw the hexes.
 svg.append('g')
@@ -176,9 +176,9 @@ Working with points, for example, we might want to create the following colour s
 
 ```
 const colourScale = d3.scaleSequential(d3.interpolateViridis)
-  .domain(hex.grid.extentPoints.reverse()); 
+  .domain([...hex.grid.maxPoints].reverse()); 
 ```
-Here, we decide to encode the number of points per hexagon as colours along the spectrum of the [Viridis colour map](https://github.com/d3/d3-scale-chromatic#interpolateViridis) and create an appropriate colour scale. We reverse the extent as we want to map the maximum value to the darkest colour, which the Viridis colour space starts with.
+Here, we decide to encode the number of points per hexagon as colours along the spectrum of the [Viridis colour map](https://github.com/d3/d3-scale-chromatic#interpolateViridis) and create an appropriate colour scale. We reverse the extent (without modifying the original array) as we want to map the maximum value to the darkest colour, which the Viridis colour space starts with.
 
 Finally, we build the visual:
 
