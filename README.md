@@ -34,26 +34,26 @@ Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 
 ![disputes](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/disputes.jpg)
 
-<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv). Additional clip-path applied. • [working example](https://bl.ocks.org/larsvers/049c8f382ea07d48ca0a395e661d0fa4)</sub>
+<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv). Additional clip-path applied. • [code](https://bl.ocks.org/larsvers/049c8f382ea07d48ca0a395e661d0fa4)</sub>
 
 
 #### Cities across the world
 
 ![cities](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/cities.jpg)
 
-<sub>Data source: [maxmind](http://www.maxmind.com/). Not equal area projected. • [working example](https://bl.ocks.org/larsvers/da5b2b77c8626be757076807409b87d3)</sub>
+<sub>Data source: [maxmind](http://www.maxmind.com/). Not equal area projected. • [code](https://bl.ocks.org/larsvers/da5b2b77c8626be757076807409b87d3)</sub>
 
 #### Farmers Markets in the US
 
 ![farmer markets](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/markets.jpg)
 
-<sub>Data source: [USDA](https://www.ams.usda.gov/local-food-directories/farmersmarkets) • [working example](https://bl.ocks.org/larsvers/7f856d848e1f5c007553a9cea8a73538)</sub>
+<sub>Data source: [USDA](https://www.ams.usda.gov/local-food-directories/farmersmarkets) • [code](https://bl.ocks.org/larsvers/7f856d848e1f5c007553a9cea8a73538)</sub>
 
 #### Post boxes in the UK 
 
 ![postboxes](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/postboxes.jpg)
 
-<sub>Data source: [dracos.co.uk](http://dracos.co.uk/) from [here](http://dracos.co.uk/made/locating-postboxes) via [Free GIS Data](https://freegisdata.rtwilson.com/) • [working example](https://bl.ocks.org/larsvers/a05405dd9476e5842a1dbbc93b3d1cf7)</sub>
+<sub>Data source: [dracos.co.uk](http://dracos.co.uk/) from [here](http://dracos.co.uk/made/locating-postboxes) via [Free GIS Data](https://freegisdata.rtwilson.com/) • [code](https://bl.ocks.org/larsvers/a05405dd9476e5842a1dbbc93b3d1cf7)</sub>
 
 
 ### Edge Cover
