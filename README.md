@@ -289,7 +289,7 @@ _data_ is an array of point location objects with _x_ and _y_ properties in scre
 If you had a point location dataset of all post boxes in the world, but you only want to visualise UK post boxes you can use these helper functions to produce a dataset with only UK post boxes like so:
 
 ```
-const polygonUk = d3.geoPolygon(ukGeo, projectionUk);
+const polygonUk   = d3.geoPolygon(ukGeo, projectionUk);
 const postboxesUk = d3.polygonPoints(postboxesWorld, polygonUk);
 ```
 
