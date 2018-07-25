@@ -290,7 +290,7 @@ If you had a point location dataset of all post boxes in the world, but you only
 
 ```
 const polygonUk = d3.geoPolygon(ukGeo, projectionUk);
-const postboxesUk = d3.polygoinPoints(postboxesWorld, polygonUk);
+const postboxesUk = d3.polygonPoints(postboxesWorld, polygonUk);
 ```
 
 If you plan to use the d3-hexgrid produced extents in a color scale, it is suggested to focus your dataset on your base geography. If produced with data beyond your base geography, the extents might not be meaningful.
