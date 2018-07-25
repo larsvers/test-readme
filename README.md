@@ -86,7 +86,7 @@ const svg = d3.select('#container')
   .attr(width, 'width')
   .attr('height, 'height');
 
-// Geo data, projection and path.
+// Projection and path.
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 
@@ -273,6 +273,25 @@ If you choose other names like for example _upDown_ and _leftRight_, you
 have to specify them as <code><i>hexgrid</i>.geokeys(['upDown', 'leftRight'])</code> with the first element representing longitude and the second latitude. 
 
 Don't call your geo keys `x` or `y` or otherwise include `x` and/or `y` keys in your passed in user variables as they are reserved keys for the pixel coordinates of the layout.
+
+<a href="#d3-geoPolygon" name="d3-geoPolygon">#</a> _d3._<b>geoPolygon</b>([_geo_, _projection_])
+
+`d3.geoPolygon()` transforms a GeoJSON geography into a Polygon or MultiPolygon. It is useful in combination with [`.polygonPoints()`](#d3-polygonPoints) to filter out point location data beyond the base geography. 
+
+_geo_ is a GeoJSON of the base geograohy. _projection_ is the applied projection function. 
+
+<a href="#d3-polygonPoints" name="d3-polygonPoints">#</a> _d3._<b>polygonPoints</b>([_data_, _polygon_])
+
+`d3.polygonPoints()` expects an array of point location objects with _x_ and _y_ properties in screen space as well as a Polygon or MultiPolygon as produced by [`d3.geoPolygon()`](#d3-geoPolygon). It returns a new array of point location objects exclusively within the bounds of the specified _polygon_.
+
+If you had a point location dataset of all post boxes in the world, but you only want to visualise UK post boxes you can use these helper functions to produce a dataset with only UK post boxes like so:
+
+```
+const polygonUk = d3.geoPolygon(ukGeo, projectionUk);
+const postboxesUk = d3.polygoinPoints(postboxesWorld, polygonUk);
+```
+
+If you plan to use the d3-hexgrid produced extents in a color scale, it is suggested to focus your dataset on your base geography. If produced with data beyond your base geography, the extents might not be meaningful.
 
 ## General notes on hexagonal binning
 
