@@ -87,7 +87,6 @@ const svg = d3.select('#container')
   .attr('height, 'height');
 
 // Geo data, projection and path.
-const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 
@@ -119,7 +118,7 @@ svg.append('g')
 
 ### Breaking the example down:
 
-First, we create an `SVG` element. Let's assume our data represents mainland US and comes in as a TopoJSON. We first convert it to GeoJSON, use an Albers projection to fit our SVG and finally get the appropriate path generator.
+First, we create an `SVG` element. Let's assume our geography represents mainland US and comes in as a geoJSON called `geo`. We use an Albers projection to fit our SVG and finally get the appropriate path generator.
 
 ```
 const svg = d3.select('#container')
@@ -127,7 +126,6 @@ const svg = d3.select('#container')
   .attr(width, 'width')
   .attr('height, 'height');
 
-const geo = topojson.feature(topo, topo.objects.us_mainland);
 const projection = d3.geoAlbers().fitSize([width, height], geo);
 const geoPath = d3.geoPath().projection(projection);
 ```
