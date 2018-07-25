@@ -276,13 +276,13 @@ Don't call your geo keys `x` or `y` or otherwise include `x` and/or `y` keys in 
 
 <a href="#d3-geoPolygon" name="d3-geoPolygon">#</a> _d3._<b>geoPolygon</b>([_geo_, _projection_])
 
-`d3.geoPolygon()` transforms a GeoJSON geography into a Polygon or MultiPolygon. It is useful in combination with [`.polygonPoints()`](#d3-polygonPoints) to filter out point location data beyond the base geography. 
+Transforms a GeoJSON geography into a Polygon or MultiPolygon. It is useful in combination with [`.polygonPoints()`](#d3-polygonPoints) to filter out point location data beyond the base geography. 
 
 _geo_ is a GeoJSON of the base geograohy. _projection_ is the applied projection function. 
 
 <a href="#d3-polygonPoints" name="d3-polygonPoints">#</a> _d3._<b>polygonPoints</b>([_data_, _polygon_])
 
-`d3.polygonPoints()` expects an array of point location objects with _x_ and _y_ properties in screen space as well as a Polygon or MultiPolygon as produced by [`d3.geoPolygon()`](#d3-geoPolygon). It returns a new array of point location objects exclusively within the bounds of the specified _polygon_.
+Expects an array of point location objects with _x_ and _y_ properties in screen space as well as a Polygon or MultiPolygon as produced by [`d3.geoPolygon()`](#d3-geoPolygon). It returns a new array of point location objects exclusively within the bounds of the specified _polygon_.
 
 If you had a point location dataset of all post boxes in the world, but you only want to visualise UK post boxes you can use these helper functions to produce a dataset with only UK post boxes like so:
 
