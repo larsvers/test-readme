@@ -274,13 +274,13 @@ have to specify them as <code><i>hexgrid</i>.geokeys(['upDown', 'leftRight'])</c
 
 Don't call your geo keys `x` or `y` or otherwise include `x` and/or `y` keys in your passed in user variables as they are reserved keys for the pixel coordinates of the layout.
 
-<a href="#d3-geoPolygon" name="d3-geoPolygon">#</a> _d3._<b>geoPolygon</b>([_geo_, _projection_])
+<a href="#d3-geoPolygon" name="d3-geoPolygon">#</a> d3.<b>geoPolygon</b>([_geo_, _projection_])
 
 Transforms a GeoJSON geography into a Polygon or MultiPolygon. It is useful in combination with [`.polygonPoints()`](#d3-polygonPoints) to filter out point location data beyond the base geography. 
 
 _geo_ is a GeoJSON of the base geography. _projection_ is the applied projection function. 
 
-<a href="#d3-polygonPoints" name="d3-polygonPoints">#</a> _d3._<b>polygonPoints</b>([_data_, _polygon_])
+<a href="#d3-polygonPoints" name="d3-polygonPoints">#</a> d3.<b>polygonPoints</b>([_data_, _polygon_])
 
 _data_ is an array of point location objects with _x_ and _y_ properties in screen space. _polygon_ is a Polygon or MultiPolygon as produced by [`d3.geoPolygon()`](#d3-geoPolygon). Returns a new array of point location objects exclusively within the bounds of the specified _polygon_.
 
