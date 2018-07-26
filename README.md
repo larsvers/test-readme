@@ -282,9 +282,7 @@ The following functions can be helpful to filter out point location data that li
 
 <a href="#d3-geoPolygon" name="d3-geoPolygon">#</a> d3.<b>geoPolygon</b>([_geo_, _projection_])
 
-Transforms a GeoJSON geography into a Polygon or MultiPolygon. It is useful in combination with [`.polygonPoints()`](#d3-polygonPoints) to filter out point location data beyond the base geography. 
-
-_geo_ is a GeoJSON of the base geography. _projection_ is the applied projection function. 
+Transforms a GeoJSON geography into a Polygon or MultiPolygon. _geo_ is a GeoJSON of the base geography. _projection_ is the applied projection function. 
 
 <a href="#d3-polygonPoints" name="d3-polygonPoints">#</a> d3.<b>polygonPoints</b>([_data_, _polygon_])
 
