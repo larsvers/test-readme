@@ -278,6 +278,8 @@ Don't call your geo keys `x` or `y` or otherwise include `x` and/or `y` keys in 
 
 ### Helper functions
 
+The following functions can be helpful to filter out point location data that lie beyond the base geography. 
+
 <a href="#d3-geoPolygon" name="d3-geoPolygon">#</a> d3.<b>geoPolygon</b>([_geo_, _projection_])
 
 Transforms a GeoJSON geography into a Polygon or MultiPolygon. It is useful in combination with [`.polygonPoints()`](#d3-polygonPoints) to filter out point location data beyond the base geography. 
