@@ -8,7 +8,7 @@ A wrapper of [_d3-hexbin_](https://github.com/d3/d3-hexbin), _**d3-hexgrid**_ do
 
 3. Lastly, _d3.hexgrid_ provides an extended layout generator for your point location data to simplify the visual encoding of your data. The layout rolls up the number of point locations per hexagon, adds cover and point density and provides point count and point density extents for colour scale domains. [See below for more](#breaking-the-example-down).
 
-Please [see this notebook](LINK) LINK!! for a description of the algorithm.
+Please [see this notebook](https://beta.observablehq.com/@larsvers/hexgrid-maps-with-d3-hexgrid) for a description of the algorithm.
 
 Go straight to the [API reference](#api-reference).
 
@@ -19,7 +19,7 @@ Go straight to the [API reference](#api-reference).
 npm install d3-hexgrid
 ```
 
-You can also download the build files [from here]() TODO link!!.
+You can also download the build files [from here](https://github.com/larsvers/d3-hexgrid/releases).
 
 Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 
@@ -72,7 +72,7 @@ The edge hexagon at the south-eastern tip of Florida we're comparing has a cover
 
 Differences might be subtle but noticeable.
 
-Please see [this notebook](LINK) LINK!! for a description of the overall algorithm in general and the cover calculation in particular. 
+Please [see this notebook](https://beta.observablehq.com/@larsvers/hexgrid-maps-with-d3-hexgrid) for a detailed description of the overall algorithm in general and the cover calculation in particular. 
 
 
 ## Example usage
@@ -299,7 +299,7 @@ If you plan to use the d3-hexgrid produced extents in a color scale, it is sugge
 
 ## General notes on hexagonal binning
 
-Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tessellated. As a result, point distributions binned by a hexagon are [relatively spike-less](LINK) LINK! and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
+Hexagons are often ideal for binning point location data as they are the shape closest to circles that can be regularly tessellated. As a result, point distributions binned by a hexagon are [relatively spike-less](https://beta.observablehq.com/@larsvers/making-a-tesselated-hexbin-map) and [neighbouring hexagons are equidistant](https://uber.github.io/h3/#/documentation/overview/use-cases).
 
 While being the right choice in many cases, two notes should be considered when using hexagonal binning&mdash;or any point location binning for that matter:
 
