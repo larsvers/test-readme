@@ -81,7 +81,7 @@ A lean example usage of _d3-hexgrid_.
 
 ```
 // Container.
-const svg = d3.select('#container')
+const svg = d3.select('body')
   .append('svg')
   .attr(width, 'width')
   .attr('height, 'height');
@@ -111,8 +111,8 @@ svg.append('g')
   .enter()
   .append('path')
   .attr('class', 'hex')
-  .attr('transform', d => `translate(${d.x}, ${d.y})`)
   .attr('d', hex.hexagon())
+  .attr('transform', d => `translate(${d.x}, ${d.y})`)
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 ```
 
@@ -121,7 +121,7 @@ svg.append('g')
 First, we create an `SVG` element. Let's assume our geography represents mainland US and comes in as a geoJSON called `geo`. We use an Albers projection to fit our SVG and finally get the appropriate path generator.
 
 ```
-const svg = d3.select('#container')
+const svg = d3.select('body')
   .append('svg')
   .attr(width, 'width')
   .attr('height, 'height');
@@ -187,11 +187,11 @@ svg.append('g')
   .enter()
   .append('path')
   .attr('class', 'hex')
-  .attr('transform', d => `translate(${d.x}, ${d.y})`)
   .attr('d', hexgrid.hexagon())
+  .attr('transform', d => `translate(${d.x}, ${d.y})`)
   .style('fill', d => !d.datapoints ? '#fff' : colourScale(d.datapoints));
 ```
-We use the `hex.grid.layout` to produce as many path's as there are hexagons&mdash;as we would with `d3.hexbin()`&mdash;now, however, making sure we have as many hexagons to cover our entire GeoJSON polygon. We `translate` them into place and draw them with `hexgrid.hexagon()`. Lastly, we give our empty hexagons (`!d.datapoints`) a white fill and colour encode all other hexagons depending on their number of `datapoints`.
+We use the `hex.grid.layout` to produce as many path's as there are hexagons&mdash;as we would with `d3.hexbin()`&mdash;now, however, making sure we have as many hexagons to cover our entire GeoJSON polygon. We draw each hexagon with with `hexgrid.hexagon()` and `translate` them into place. Lastly, we give our empty hexagons (`!d.datapoints`) a white fill and colour encode all other hexagons depending on their number of `datapoints`.
 
 
 
