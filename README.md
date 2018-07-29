@@ -72,7 +72,7 @@ The edge hexagon at the south-eastern tip of Florida we're comparing has a cover
 
 Differences might be subtle but noticeable.
 
-Please see the d3-hexgrid's notebook [section on edge cover](https://beta.observablehq.com/@larsvers/hexgrid-maps-with-d3-hexgrid#coverChapter) for a detailed description of the overall algorithm in general and the cover calculation in particular. 
+Please see the d3-hexgrid's notebook [section on edge cover](https://beta.observablehq.com/@larsvers/hexgrid-maps-with-d3-hexgrid#coverChapter) for a detailed description of the cover calculation. 
 
 
 ## Example usage
