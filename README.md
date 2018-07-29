@@ -148,7 +148,7 @@ const hex = hexgrid(myPointLocationData);
 
 ![grid object](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/grid-object.jpg)
 
-* `imageCenters` is an array of all [x, y] hexagon centres of the hexgrid.
+* `imageCenters` is an array of objects exposing at least the _x_, _y_ hexagon centre coordinates of the hexgrid in screen space.
 
 * `layout` is an array of arrays, each sub-array representing a hexagon in the grid. Each sub-array holds all point locations per hexagon in an object exposing at least _x_ and _y_ pixel coordinates as well as aggregate values. Here's an example hexagon layout sub-array with three point locations (or _datapoints_):
 
