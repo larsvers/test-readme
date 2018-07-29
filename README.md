@@ -324,4 +324,4 @@ Location binning is susceptible to the [Modifiable Areal Unit Problem](https://b
 
 A big thanks to [Philippe Rivière](https://illisible.net/philippe-riviere) for bringing the grid layout algorithm on track and sparking the idea for the edge cover calculation. This plug-in would look different and be significantly less performant without his elegant ideas.
 
-For a deeper dive read [Amit Patel](http://www-cs-students.stanford.edu/~amitp/)' aka [reblobgames](https://www.redblobgames.com/) seminal [hexagon tutorial](http://www.redblobgames.com/grids/hexagons/). Best to find out there. Also see what Uber's been doing with [H3](https://uber.github.io/h3/#/), which in many ways goes far beyond this plugin.
+For a deeper dive read [Amit Patel](http://www-cs-students.stanford.edu/~amitp/)'s (aka [reblobgames](https://www.redblobgames.com/)) seminal [hexagon tutorial](http://www.redblobgames.com/grids/hexagons/). Best to find out there. Also see what Uber's been doing with [H3](https://uber.github.io/h3/#/), which in many ways goes far beyond this plugin.
