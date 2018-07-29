@@ -41,7 +41,7 @@ Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 
 ![cities](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/cities.jpg)
 
-<sub>Data source: [maxmind](http://www.maxmind.com/). Not equal area projected. • [code](https://bl.ocks.org/larsvers/da5b2b77c8626be757076807409b87d3)</sub>
+<sub>Data source: [maxmind](https://www.maxmind.com/en/free-world-cities-database). Not equal area projected. • [code](https://bl.ocks.org/larsvers/da5b2b77c8626be757076807409b87d3)</sub>
 
 #### Farmers Markets in the US
 
