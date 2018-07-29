@@ -34,7 +34,7 @@ Or you can use [unpkg](https://unpkg.com/) to script-link to _d3-hexgrid_:
 
 ![disputes](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/disputes.jpg)
 
-<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/workspace/file?filename=midloc-v1-1%2FMIDLOC_1.1.csv). Additional clip-path applied. • [code](https://bl.ocks.org/larsvers/049c8f382ea07d48ca0a395e661d0fa4)</sub>
+<sub>Data source: [Midloc via data.world](https://data.world/cow/militarized-dispute-locations/). Additional clip-path applied. • [code](https://bl.ocks.org/larsvers/049c8f382ea07d48ca0a395e661d0fa4)</sub>
 
 
 #### Cities across the world
@@ -152,24 +152,24 @@ const hex = hexgrid(myPointLocationData);
 
 * `layout` is an array of arrays, each sub-array representing a hexagon in the grid. Each sub-array holds all point locations per hexagon in an object exposing at least _x_ and _y_ pixel coordinates as well as aggregate values. Here's an example hexagon layout sub-array with three point locations (or _datapoints_):
 
-	![layout object](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/layout-object.jpg)
-	
-	The aggregate values per hexagon are:
+  ![layout object](https://raw.githubusercontent.com/larsvers/image-store/master/d3-hexgrid/layout-object.jpg)
+  
+  The aggregate values per hexagon are:
 
-	- `cover` is the percentage of this hexagon's area within the geography expressed as a number between 0 and 1.
-	- `datapoints` is the number of points binned in the hexagon.
-	- `datapointsWt` is the number of points weighted by the inverse cover.
-	- `pointDensity` is the hexagon's point density.
-	- `gridpoint` marks the hexagon as part of the initial hexgrid. This allows you to identify hexagons added by the data. Imprecise latitude and longitude data values can lead to the generation of hexagons just outside the hexgrid. _d3.hexgrid_ will still capture and produce them. But you can spot and treat them by filtering for `gridpoint === 0`.
-	- `x` and `y` are the hexagon centre positions in pixel coordinates.
+  - `cover` is the percentage of this hexagon's area within the geography expressed as a number between 0 and 1.
+  - `datapoints` is the number of points binned in the hexagon.
+  - `datapointsWt` is the number of points weighted by the inverse cover.
+  - `pointDensity` is the hexagon's point density.
+  - `gridpoint` marks the hexagon as part of the initial hexgrid. This allows you to identify hexagons added by the data. Imprecise latitude and longitude data values can lead to the generation of hexagons just outside the hexgrid. _d3.hexgrid_ will still capture and produce them. But you can spot and treat them by filtering for `gridpoint === 0`.
+  - `x` and `y` are the hexagon centre positions in pixel coordinates.
 
 * `extentPoints` is the extent of point location counts over all hexagons in the form _[min number of points, max number of points]_.
 * `extentPointsWeighted` is the extent of point location counts weighted by their cover over all hexagons in the form _[min number of weighted points, max number of weighted points]_.
 * `extentPointDensity` is the extent of cover adjusted point density over all hexagons in the form _[min point density, max point density]_.
 
-	These extents can be used to set a colour scale domain when encoding number of points or point density.
+  These extents can be used to set a colour scale domain when encoding number of points or point density.
 
-	
+  
 Working with points, for example, we might want to create the following colour scale:
 
 ```
